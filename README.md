@@ -2,7 +2,7 @@
 
 This is a sample of a Remix app, running on Cloudflare Pages Functions. It utilizes XDM to source Markdown from anywhere (database etc), process it on the Function, then send it to the client for rendering.
 
-**In order to make this work, patching an upstream module is required as of decode-named-character-reference@1.0.1. This is because it assumes a context of the browser, when we are compiling on the Function. The change to is for index.dom.js, and is as follows:**
+**In order to make this work, patching an upstream module is required as of decode-named-character-reference@1.0.1. This is because it assumes a context of the browser, when we are compiling on the Function (and document is not available). The change to is for index.dom.js, and is as follows:**
 
 ```diff
 - const element = document.createElement('i')
