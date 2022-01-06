@@ -5,7 +5,7 @@ import { useMDXComponents } from "@mdx-js/react";
 import runMarkdown from "../mdx.client";
 import Counter from "../counter";
 
-export let loader: LoaderFunction = async ({ request }) => {
+export let loader: LoaderFunction = async () => {
   // Source the MDX Markdown from wherever you want here (e.g. database).
   const markdown = `# XDM  
     ### This is Markdown rendered with XDM on a [Cloudflare Pages Function](https://blog.cloudflare.com/cloudflare-pages-goes-full-stack/).  
