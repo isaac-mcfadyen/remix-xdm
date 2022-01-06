@@ -5,8 +5,6 @@ import { useMDXComponents } from "@mdx-js/react";
 import runMarkdown from "../mdx.client";
 import Counter from "../counter";
 
-const H1 = (props: any) => <h1 style={{ color: "tomato" }} {...props} />;
-
 export let loader: LoaderFunction = async ({ request }) => {
   // Source the MDX Markdown from wherever you want here (e.g. database).
   const markdown = `# XDM  
