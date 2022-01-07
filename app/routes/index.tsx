@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, LoaderFunction } from "remix";
-import { compile } from "xdm";
+import { compile, runSync } from "xdm";
 import { useMDXComponents } from "@mdx-js/react";
-import runMarkdown from "../mdx.client";
 import Counter from "../counter";
+import * as runtime from "react/jsx-runtime";
 
 export let loader: LoaderFunction = async () => {
   // Source the MDX Markdown from wherever you want here (e.g. database).
@@ -35,7 +35,10 @@ export default function Markdown() {
 
   useEffect(() => {
     // This all happens in useEffect because otherwise the CF Pages Function runs it, which doesn't support eval().
-    const { default: Content } = runMarkdown(input, components);
+    const { default: Content } = runSync(input, {
+      useMDXComponents: () => components,
+      ...runtime,
+    });
     setMarkdown(Content);
   }, [input]);
 
