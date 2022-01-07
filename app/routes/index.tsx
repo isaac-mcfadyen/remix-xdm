@@ -25,10 +25,8 @@ export default function Markdown() {
   // Get the data from the Remix server.
   const input = useLoaderData();
 
-  const components = useMDXComponents();
-
   // Add all of the custom components you want to use in your MDX here.
-  components.Counter = Counter;
+  const components = useMDXComponents({ Counter: Counter });
 
   // useEffect holds the Markdown after rendering.
   let [markdown, setMarkdown] = useState(
@@ -41,5 +39,5 @@ export default function Markdown() {
     setMarkdown(Content);
   }, [input]);
 
-  return { markdown };
+  return markdown;
 }
