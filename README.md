@@ -1,3 +1,4 @@
+# ARCHIVED, no longer working
 # Welcome to Remix with XDM!
 
 This is a sample of a Remix app, running on Cloudflare Pages Functions. It utilizes XDM to source Markdown from anywhere (database etc), process it on the Function, then send it to the client for rendering.
